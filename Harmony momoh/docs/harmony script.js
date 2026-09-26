@@ -79,6 +79,7 @@ document.addEventListener('DOMContentLoaded', () => {
   const vid = document.getElementById('bg-video');
   if (vid) {
     const tryPlay = () => {
+	  vid.muted = true;
       const playPromise = vid.play();
       if (playPromise !== undefined) {
         playPromise.catch(() => {
