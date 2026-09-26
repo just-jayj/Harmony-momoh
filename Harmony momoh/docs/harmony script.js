@@ -75,3 +75,20 @@
   const src = vid.querySelector('source').getAttribute('src');
   if(src && src.trim() !== ''){ vid.style.display='block'; document.getElementById('bgFallback').style.display='none'; }
   else { vid.style.display='none'; }
+document.addEventListener('DOMContentLoaded', () => {
+  const vid = document.getElementById('bg-video');
+  if (vid) {
+    const tryPlay = () => {
+      const playPromise = vid.play();
+      if (playPromise !== undefined) {
+        playPromise.catch(() => {
+          setTimeout(() => vid.play().catch(()=>{}), 300);
+        });
+      }
+    };
+    tryPlay();
+    document.addEventListener('visibilitychange', () => {
+      if (!document.hidden) tryPlay();
+    });
+  }
+});
