@@ -71,7 +71,7 @@
     document.addEventListener(ev, ()=>{ if(ssRunning) stopScreensaver(); resetIdle(); }));
   resetIdle();
 
-  const vid = document.getElementById('bgVideo');
+  const vid = document.getElementById('bg-video');
   const src = vid.querySelector('source').getAttribute('src');
   if(src && src.trim() !== ''){ vid.style.display='block'; document.getElementById('bgFallback').style.display='none'; }
   else { vid.style.display='none'; }
