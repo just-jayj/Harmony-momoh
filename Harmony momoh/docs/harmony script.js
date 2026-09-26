@@ -101,8 +101,8 @@ if (vid) {
     }
   };
 
-  tryPlay();
-
+  vid.addEventsListener('loadedmetadata', tryplay);
+  tryplay();
   document.addEventListener('visibilitychange', () => {
     if (!document.hidden) tryPlay();
   });
